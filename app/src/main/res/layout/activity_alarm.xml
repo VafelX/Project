@@ -1,50 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.87">
+        android:layout_weight="1.5">
+
     <TimePicker
         android:id="@+id/timepecker"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+
+
+<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-        <ImageButton
+        android:layout_weight="1.5"
+        android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_typeGl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Установить тип головоломки" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Установить количество повторений"
+        app:layout_constraintTop_toBottomOf="@id/btn_typeGl" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            tools:ignore="MissingConstraints" />
+</LinearLayout>
+
+
+
+
+
+<FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.25">
+
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_off"
             android:layout_width="50dp"
             android:layout_height="50dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:src="@drawable/ic_krest"
-            android:backgroundTint="@color/white"
+            android:layout_gravity="bottom|right"/>
 
-            />
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_on"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_gravity="bottom|left"
+            android:backgroundTint="@color/green"
+            android:src="@drawable/ic_galka"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:src="@drawable/ic_galka"
-            android:backgroundTint="@color/white"/>
+            android:onClick="play"/>
 
+        <TextView
+            android:id="@+id/tv_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:hint="qazwxsecdrvftbgynhumjik,o"/>
 
+</FrameLayout>
 
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
