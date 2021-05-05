@@ -77,12 +77,11 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:onClick="play"/>
 
-        <TextView
-            android:id="@+id/tv_update"
+        <TextClock
+            android:id="@+id/txtClock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center|bottom"
-            android:hint="qazwxsecdrvftbgynhumjik,o"/>
+            android:layout_gravity="center|bottom"/>
 
 </FrameLayout>
 
