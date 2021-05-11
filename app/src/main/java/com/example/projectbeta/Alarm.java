@@ -3,8 +3,10 @@ package com.example.projectbeta;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.DialogFragment;
 
 import android.app.PendingIntent;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,10 +19,12 @@ import java.util.Calendar;
 public class Alarm extends AppCompatActivity {
 
     private AppCompatButton imgbtn_on, imgbtn_off;
+    private AppCompatButton btnLVLgl;
     //AlarmManager alarmManager;
     TimePicker timePicker;
     PendingIntent pendingIntent;
     TextClock textClock;
+    private AlarmReceiver alarm;
 
 
     @Override
@@ -29,6 +33,16 @@ public class Alarm extends AppCompatActivity {
         setContentView(R.layout.activity_alarm);
         timePicker = (TimePicker) findViewById(R.id.timepecker);
         textClock = findViewById(R.id.txtClock);
+        btnLVLgl = findViewById(R.id.btn_typeGl);
+        alarm = new AlarmReceiver();
+//        btnLVLgl.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                DialogFragment lvlFragment = new FragmentTypeGl();
+//                lvlFragment.show(getSupportFragmentManager()
+//                , "lvlFragment");
+//            }
+//        });
         //alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
         imgbtn_off = findViewById(R.id.btn_off);
@@ -61,6 +75,8 @@ public class Alarm extends AppCompatActivity {
 
 
 
+
+
               pendingIntent = PendingIntent.getBroadcast(Alarm.this, 0, my_intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
 
@@ -75,6 +91,13 @@ public class Alarm extends AppCompatActivity {
                 String times24 = "Будильник поставлен на: " + AlarmTime24();
                 i.putExtra("times24", times24);
                 i.putExtra("time24", time24);
+                //HH && mm
+                String hours24 = Hours24();
+                Integer hours12 = Hours12();
+                Integer minAll = Min();
+                i.putExtra("hours24", hours24);
+                i.putExtra("hours12", hours12);
+                i.putExtra("minAll", minAll);
                 startActivity(i);
 
             }
@@ -107,6 +130,13 @@ public class Alarm extends AppCompatActivity {
 
         return alarmTime12;
     }
+    public Integer Hours12(){
+        Integer alarmHours12 = timePicker.getCurrentHour();
+        Integer hours12 = alarmHours12;
+        return hours12;
+    }
+
+
 
 
 
@@ -129,6 +159,18 @@ public class Alarm extends AppCompatActivity {
 
 
         return alarmTime24;
+    }
+    public String Hours24(){
+        Integer alarmHours24 = timePicker.getCurrentHour();
+        String hours24 = alarmHours24.toString();
+        return hours24;
+    }
+
+
+
+    public Integer Min() {
+        Integer alarmMinutes = timePicker.getCurrentMinute();
+        return alarmMinutes;
     }
 
 }

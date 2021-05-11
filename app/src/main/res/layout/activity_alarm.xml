@@ -9,12 +9,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5">
+        android:layout_weight="2">
 
     <TimePicker
         android:id="@+id/timepecker"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="87dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -32,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Установить тип головоломки" />
+        android:text="Установить уровень головоломки" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
@@ -71,8 +73,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="bottom|left"
-            android:backgroundTint="@color/green"
-            android:src="@drawable/ic_galka"
+            android:backgroundTint="#00BCD4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:onClick="play"/>
